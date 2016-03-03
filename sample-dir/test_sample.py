@@ -1,19 +1,17 @@
 import unittest
 
-# patchtestdata is the module that contains the patchtest command line arguments
-# and  input data (either series or local mboxes)
-import patchtestdata
+# patchtestdata is the module that contains PatchTestInput class, used as
+# a namespace to store patchtest command line arguments like the repo directory
+# or the series/revision being tested
+from patchtestdata import PatchTestInput as pti
 
-pti = patchtestdata.PatchTestInput.pti
+class TestSample(unittest.TestCase):
 
-class SignedOff(unittest.TestCase):
-    
-    @classmethod
-    def setUpClass(cls):
-        # An item is an abstraction of either a series or mbox.
-        # patchtest can test more than one item at a time, so items variable
-        # is a list
-        cls.items = pti.repo.items
+    def test_repodir_existance(self):
+        self.assertTrue(os.path.exists(pti.repodir))
 
-    def test_presence(self):
-        self.assertTrue(True)
+    def test_items_non_empty(self):
+        # An Repo's item is an abstraction of either a series or mbox.
+        for item in pti.repo.items:
+            self.assertFalse(item.is_empty, "Item should not be empty")
+
