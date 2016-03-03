@@ -4,7 +4,7 @@ import unittest
 # and  input data (either series or local mboxes)
 import patchtestdata
 
-patchtestinput = patchtestdata.PatchtestInput.pti
+pti = patchtestdata.PatchTestInput.pti
 
 class SignedOff(unittest.TestCase):
     
@@ -13,7 +13,7 @@ class SignedOff(unittest.TestCase):
         # An item is an abstraction of either a series or mbox.
         # patchtest can test more than one item at a time, so items variable
         # is a list
-        cls.items = patchtestinput.repo.items
+        cls.items = pti.repo.items
 
     def test_presence(self):
         self.assertTrue(True)
