@@ -12,7 +12,6 @@ class TestSample(unittest.TestCase):
         """ Sample test: checks that the repository exists """
         self.assertTrue(os.path.exists(pti.repodir))
 
-    @unittest.skipUnless(pti.repo.items, "There are no items to test")
     def test_items_non_empty(self):
         """ Sample test: check items have content """
         # An Repo's item is an abstraction of either a series or mbox.
