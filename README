@@ -1,0 +1,8 @@
+= Sample test suite for `patchtest`
+
+Sample test-suite for the link:https://github.com/lsandoval/patchtest [patchtest] framework.
+To include it, run the following command under the patchtest folder
+
+[source,console]
+patchtest $ git subcommand add https://github.com/lsandoval/patchtest-sample-test-suite
+
