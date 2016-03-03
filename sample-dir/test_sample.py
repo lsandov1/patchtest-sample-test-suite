@@ -1,4 +1,5 @@
 import unittest
+import os
 
 # patchtestdata is the module that contains PatchTestInput class, used as
 # a namespace to store patchtest command line arguments like the repo directory
