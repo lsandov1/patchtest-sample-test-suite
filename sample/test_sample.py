@@ -8,13 +8,11 @@ from patchtestdata import PatchTestInput as pti
 
 class TestSample(unittest.TestCase):
 
-    def test_repodir_existance(self):
-        """ Sample test: checks that the repository exists """
-        self.assertTrue(os.path.exists(pti.repodir))
+    def pretest_sample(self):
+        """ Sample test: test that runs before patching"""
+        self.assertTrue(True)
 
-    def test_items_non_empty(self):
-        """ Sample test: check items have content """
-        # An Repo's item is an abstraction of either a series or mbox.
-        for item in pti.repo.items:
-            self.assertFalse(item.is_empty, "Item should not be empty")
+    def test_sample(self):
+        """ Sample test: test that runs after patching """
+        self.assertTrue(True)
 
