@@ -1,18 +1,20 @@
 import unittest
 import os
 
-# patchtestdata is the module that contains PatchTestInput class, used as
-# a namespace to store patchtest command line arguments like the repo directory
-# or the series/revision being tested
+# PatchTestInput contains patchtest input data
 from patchtestdata import PatchTestInput as pti
+
+# PatchTestDataStore is used to share data between unit tests
+from patchtestdata import PatchTestDataStore as ptds
 
 class TestSample(unittest.TestCase):
 
     def pretest_sample(self):
         """ Sample test: test that runs before patching"""
+        ptds['sample'] = True
         self.assertTrue(True)
 
     def test_sample(self):
         """ Sample test: test that runs after patching """
-        self.assertTrue(True)
+        self.assertTrue(ptds['sample'])
 
